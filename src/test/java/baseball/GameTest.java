@@ -1,8 +1,5 @@
 package baseball;
 
-import baseball.service.NumberGenerator;
-import baseball.service.Round;
-import camp.nextstep.edu.missionutils.test.Assertions;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
