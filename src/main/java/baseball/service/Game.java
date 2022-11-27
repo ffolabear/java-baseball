@@ -8,12 +8,12 @@ import java.util.List;
 
 public class Game {
 
-    NumberGenerator numberGenerator;
     private List<Integer> computerNumber;
+    private final InputView inputView = new InputView();
 
     public void startGame() {
         OutputView.gameStartMessage();
-        numberGenerator = new NumberGenerator();
+        NumberGenerator numberGenerator = new NumberGenerator();
         numberGenerator.generate();
         computerNumber = numberGenerator.getGeneratedNumber();
         startRound();
@@ -26,7 +26,7 @@ public class Game {
 
     public void playRound(Round round) {
         while (!round.isRoundFinished) {
-            round.inputNumber();
+            round.setUserNumber(inputView.inputNumber());
             round.judgeRound();
             round.printResult();
         }
@@ -36,7 +36,6 @@ public class Game {
 
     public void replayGame() {
         OutputView.gameReplayMessage();
-        InputView inputView = new InputView();
         String command = inputView.inputRetryCommand();
         if (command.equals(GameCommand.REPLAY.getAttribute())) {
             startGame();

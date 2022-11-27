@@ -10,12 +10,12 @@ public class InputView {
 
     InputValidation inputValidation = new InputValidation();
 
-    public String inputNumber() {
+    public List<Integer> inputNumber() {
         String input = Console.readLine();
         inputValidation.isNumberDigit(input);
         inputValidation.isValidNumberAmount(input);
         inputValidation.isDuplicatedNumberExist(input);
-        return input;
+        return convertToList(input);
     }
 
     public String inputRetryCommand() {

@@ -1,13 +1,11 @@
 package baseball.service;
 
-import baseball.util.InputView;
 import baseball.util.OutputView;
 
 import java.util.List;
 
 public class Round {
 
-    private final InputView inputView = new InputView();
     private final List<Integer> computerNumber;
     private List<Integer> userNumber;
     private int ballCount;
@@ -18,10 +16,9 @@ public class Round {
         this.computerNumber = computerNumber;
     }
 
-    public void inputNumber() {
+    public void setUserNumber(List<Integer> userInput) {
         OutputView.inputNumberMessage();
-        String input = inputView.inputNumber();
-        userNumber = inputView.convertToList(input);
+        userNumber = userInput;
     }
 
     public void judgeRound() {
